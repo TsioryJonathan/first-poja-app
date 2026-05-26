@@ -2,16 +2,14 @@ package com.example.demo.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public class AddServiceTest {
-  private AddService addService;
-
-  @BeforeEach
-  void setup() {
-    addService = new AddService();
-  }
+  @InjectMocks private AddService addService;
 
   @Test
   void should_add_two_positive_number() {
