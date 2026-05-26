@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 public class AddController {
-    private final AddService addService;
-    @GetMapping("/add")
-    public ResponseEntity<?> add(@RequestParam int a, @RequestParam int b) {
-        try{
-            int value = addService.add(a, b);
-            return ResponseEntity.status(HttpStatus.OK).body("Compute value of" + a + " and" + b + "is " + value);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
+  private final AddService addService;
 
+  @GetMapping("/add")
+  public ResponseEntity<?> add(@RequestParam int a, @RequestParam int b) {
+    try {
+      int value = addService.add(a, b);
+      return ResponseEntity.status(HttpStatus.OK)
+          .body("Compute value of" + a + " and" + b + "is " + value);
+    } catch (IllegalArgumentException e) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
-
-
+  }
 }
