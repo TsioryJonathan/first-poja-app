@@ -1,12 +1,11 @@
-package com.example.demo.conf;
+package com.example.demo.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.example.demo.service.AddService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AddTest {
+public class AddServiceTest {
   private AddService addService;
 
   @BeforeEach
@@ -15,23 +14,16 @@ public class AddTest {
   }
 
   @Test
-  void addOk() {
+  void should_add_two_positive_number() {
     int a = 10;
     int b = 50;
     assertEquals(60, addService.add(a, b));
   }
 
   @Test
-  void addFail() {
+  void should_throw_an_error_if_one_is_negative() {
     int a = 10;
     int b = -5;
     assertThrows(IllegalArgumentException.class, () -> addService.add(a, b));
-  }
-
-  @Test
-  void addNotEqual() {
-    int a = 10;
-    int b = 50;
-    assertNotEquals(70, addService.add(a, b));
   }
 }
