@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AddTest {
-    AddService addService;
+    private AddService addService;
     @BeforeEach
     void setup(){
         addService = new AddService();
