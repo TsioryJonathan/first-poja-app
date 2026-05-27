@@ -22,7 +22,7 @@ public class FacadeIT {
     new EmailConf().configureProperties(registry);
 
     try {
-      var envConfClazz = Class.forName("com.example.demo.conf.EnvConf");
+      var envConfClazz = Class.forName("com.poja.first.conf.EnvConf");
       var envConfConfigureProperties =
           envConfClazz.getDeclaredMethod("configureProperties", DynamicPropertyRegistry.class);
       var envConf = envConfClazz.getConstructor().newInstance();
