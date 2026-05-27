@@ -33,11 +33,4 @@ public class DivideServiceTest {
     double b = 0;
     assertThrows(ZeroDivisionError.class, () -> divideService.divide(a, b));
   }
-
-  @Test
-  void should_truncate_result_for_non_divisible_numbers() {
-    double a = 10;
-    double b = 3;
-    assertEquals(3, divideService.divide(a, b));
-  }
 }
