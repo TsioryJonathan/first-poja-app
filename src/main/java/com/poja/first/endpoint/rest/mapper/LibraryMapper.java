@@ -6,6 +6,8 @@ import com.poja.first.model.library.dto.response.LibraryDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @AllArgsConstructor
 public class LibraryMapper {
@@ -17,7 +19,7 @@ public class LibraryMapper {
                 .name(library.getName())
                 .phone(library.getPhoneNumber())
                 .address(library.getAddress())
-                .books(library.getBooks().stream().map(bookMapper::toDTO).toList())
+                .books(library.getBooks() != null ? library.getBooks().stream().map(bookMapper::toDTO).toList(): List.of())
                 .build();
     }
 
