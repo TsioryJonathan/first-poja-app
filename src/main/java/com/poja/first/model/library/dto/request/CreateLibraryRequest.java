@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateLibraryRequest {
-    private String name;
-    private String address;
-    private String phone;
+  private String name;
+  private String address;
+  private String phone;
 }

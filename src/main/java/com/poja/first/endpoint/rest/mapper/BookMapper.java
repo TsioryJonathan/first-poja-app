@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class BookMapper {
-    public BookDTO toDTO(Book book) {
-        return BookDTO.builder()
-                .id(book.getId())
-                .title(book.getTitle())
-                .author(book.getAuthor())
-                .releaseYear(book.getReleaseYear())
-                .build();
-    }
+  public BookDTO toDTO(Book book) {
+    return BookDTO.builder()
+        .id(book.getId())
+        .title(book.getTitle())
+        .author(book.getAuthor())
+        .releaseYear(book.getReleaseYear())
+        .build();
+  }
 }
