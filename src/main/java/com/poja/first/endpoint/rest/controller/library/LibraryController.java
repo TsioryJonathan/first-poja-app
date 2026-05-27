@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class LibraryController {
     private final LibraryService libraryService;
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Library>> getAll(){
         return ResponseEntity.status(HttpStatus.OK).body(libraryService.getAllLibrary());
     }

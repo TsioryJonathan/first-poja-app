@@ -1,6 +1,7 @@
 package com.poja.first.model.library;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,6 +29,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "id_library")
+    @JsonIgnore
     private Library library;
 
     public Book(String title, String author, Integer releaseYear, Library library) {
