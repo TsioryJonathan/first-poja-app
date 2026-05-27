@@ -16,4 +16,6 @@ public interface LibraryRepository extends JpaRepository<Library, String> {
     @Query("SELECT l FROM Library l")
     @EntityGraph(attributePaths = {"books"})
     List<Library> findAllWithBooks();
+
+    List<Library> findByNameContainingIgnoreCase(String name);
 }

@@ -26,4 +26,9 @@ public class LibraryService {
                 .map(libraryMapper::toDTO)
                 .orElseThrow(() -> new NotFoundException(String.format("Library with id %s not found", libraryId)));
     }
+    public List<LibraryDTO> searchLibraryByName(String keyword){
+        return libraryRepository.findByNameContainingIgnoreCase(keyword)
+                .stream().map(libraryMapper::toDTO)
+                .toList();
+    }
 }
