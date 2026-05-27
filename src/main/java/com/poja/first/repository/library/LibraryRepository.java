@@ -11,11 +11,12 @@ import java.util.Optional;
 
 @Repository
 public interface LibraryRepository extends JpaRepository<Library, String> {
-    Optional<Library> findByName(String name);
-
     @Query("SELECT l FROM Library l")
     @EntityGraph(attributePaths = {"books"})
     List<Library> findAllWithBooks();
 
     List<Library> findByNameContainingIgnoreCase(String name);
+
+    boolean existsByNameIgnoreCase(String name);
+    boolean existsByPhoneNumber(String number);
 }

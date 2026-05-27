@@ -1,7 +1,7 @@
 package com.poja.first.endpoint.rest.mapper;
 
 import com.poja.first.model.library.Book;
-import com.poja.first.model.library.dto.BookDTO;
+import com.poja.first.model.library.dto.response.BookDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

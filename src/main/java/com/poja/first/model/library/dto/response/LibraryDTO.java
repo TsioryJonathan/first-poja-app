@@ -1,4 +1,4 @@
-package com.poja.first.model.library.dto;
+package com.poja.first.model.library.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
