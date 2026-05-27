@@ -32,6 +32,4 @@ public class SubtractServiceTest {
     double b = -5;
     assertThrows(NegativeNumberException.class, () -> subtractService.subtract(a, b));
   }
-
-
 }
