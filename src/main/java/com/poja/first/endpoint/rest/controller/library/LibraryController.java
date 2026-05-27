@@ -1,6 +1,7 @@
 package com.poja.first.endpoint.rest.controller.library;
 
 import com.poja.first.model.library.Library;
+import com.poja.first.model.library.dto.LibraryDTO;
 import com.poja.first.service.library.LibraryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ import java.util.List;
 public class LibraryController {
     private final LibraryService libraryService;
     @GetMapping
-    public ResponseEntity<List<Library>> getAll(){
+    public ResponseEntity<List<LibraryDTO>> getAll(){
         return ResponseEntity.status(HttpStatus.OK).body(libraryService.getAllLibrary());
     }
 }

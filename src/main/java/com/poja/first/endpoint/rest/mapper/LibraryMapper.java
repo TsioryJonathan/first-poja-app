@@ -1,0 +1,22 @@
+package com.poja.first.endpoint.rest.mapper;
+
+import com.poja.first.model.library.Library;
+import com.poja.first.model.library.dto.LibraryDTO;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@AllArgsConstructor
+public class LibraryMapper {
+
+    private final BookMapper bookMapper;
+    public LibraryDTO toDTO(Library library) {
+        return LibraryDTO.builder()
+                .id(library.getId())
+                .name(library.getName())
+                .phone(library.getPhoneNumber())
+                .address(library.getAddress())
+                .books(library.getBooks().stream().map(bookMapper::toDTO).toList())
+                .build();
+    }
+}
