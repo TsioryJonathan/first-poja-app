@@ -21,8 +21,9 @@ public class LibraryService {
                 .map(libraryMapper::toDTO)
                 .toList();
     }
-    public Library getLibraryById(String libraryId){
+    public LibraryDTO getLibraryById(String libraryId){
         return libraryRepository.findById(libraryId)
+                .map(libraryMapper::toDTO)
                 .orElseThrow(() -> new NotFoundException(String.format("Library with id %s not found", libraryId)));
     }
 }
