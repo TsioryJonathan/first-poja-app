@@ -8,17 +8,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @AllArgsConstructor
 public class SubtractController {
   private final SubtractService subtractService;
 
   @GetMapping("/subtract")
-  public ResponseEntity<?> subtract(@RequestParam int a, @RequestParam int b) {
+  public ResponseEntity<?> subtract(@RequestParam double a, @RequestParam double b) {
     try {
-      int value = subtractService.subtract(a, b);
+      double value = subtractService.subtract(a, b);
+      Map<String, String> map = new HashMap<>();
+      map.put("result", "Subtraction of " +  a + " and " + b + " is " + value);
       return ResponseEntity.status(HttpStatus.OK)
-          .body("Compute value of" + a + " and" + b + "is " + value);
+              .body(map);
     } catch (IllegalArgumentException e) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }

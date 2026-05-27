@@ -2,6 +2,7 @@ package com.poja.first.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.poja.first.model.exception.NegativeNumberException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,15 +14,15 @@ public class AddServiceTest {
 
   @Test
   void should_add_two_positive_number() {
-    int a = 10;
-    int b = 50;
+    double a = 10d;
+    double b = 50d;
     assertEquals(60, addService.add(a, b));
   }
 
   @Test
   void should_throw_an_error_if_one_is_negative() {
-    int a = 10;
-    int b = -5;
-    assertThrows(IllegalArgumentException.class, () -> addService.add(a, b));
+    double a = 10;
+    double b = -5;
+    assertThrows(NegativeNumberException.class, () -> addService.add(a, b));
   }
 }

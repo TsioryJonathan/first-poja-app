@@ -1,17 +1,18 @@
 package com.poja.first.service;
 
+import com.poja.first.model.exception.NegativeNumberException;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MultiplyService {
-  public int multiply(int a, int b) {
+  public double multiply(double a, double b) {
     if (a < 0 || b < 0) {
-      throw new IllegalArgumentException("A or B cannot be negative");
+      throw new NegativeNumberException("A or B cannot be negative");
     }
-    long result = (long) a * b;
+    long result = (long) (a * b);
     if (result > Integer.MAX_VALUE) {
       throw new IllegalArgumentException("Result exceeds integer bounds");
     }
-    return (int) result;
+    return (double) result;
   }
 }

@@ -8,17 +8,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @AllArgsConstructor
 public class AddController {
   private final AddService addService;
 
   @GetMapping("/add")
-  public ResponseEntity<?> add(@RequestParam int a, @RequestParam int b) {
+  public ResponseEntity<?> add(@RequestParam double a, @RequestParam double b) {
     try {
-      int value = addService.add(a, b);
+      double value = addService.add(a, b);
+      Map<String, String> map = new HashMap<>();
+      map.put("result", "Addition of " +  a + " and " + b + " is " + value);
       return ResponseEntity.status(HttpStatus.OK)
-          .body("Compute value of" + a + " and" + b + "is " + value);
+          .body(map);
     } catch (IllegalArgumentException e) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }

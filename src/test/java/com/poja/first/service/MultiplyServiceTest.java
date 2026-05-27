@@ -2,6 +2,7 @@ package com.poja.first.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.poja.first.model.exception.NegativeNumberException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,22 +14,22 @@ public class MultiplyServiceTest {
 
   @Test
   void should_multiply_two_positive_numbers() {
-    int a = 10;
-    int b = 50;
+    double a = 10;
+    double b = 50;
     assertEquals(500, multiplyService.multiply(a, b));
   }
 
   @Test
   void should_throw_an_error_if_one_is_negative() {
-    int a = 10;
-    int b = -5;
-    assertThrows(IllegalArgumentException.class, () -> multiplyService.multiply(a, b));
+    double a = 10;
+    double b = -5;
+    assertThrows(NegativeNumberException.class, () -> multiplyService.multiply(a, b));
   }
 
   @Test
   void should_throw_an_error_if_result_overflows() {
-    int a = Integer.MAX_VALUE;
-    int b = 2;
+    double a = Integer.MAX_VALUE;
+    double b = 2;
     assertThrows(IllegalArgumentException.class, () -> multiplyService.multiply(a, b));
   }
 
