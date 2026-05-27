@@ -43,4 +43,4 @@ out/
 .DS_Store
 
 **.properties
-!application-template.properties
+!application-template.propertiessrc/main/resources/application.properties
